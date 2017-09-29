@@ -488,8 +488,14 @@ function transform(file, api, options) {
 
         return result + named.join(',') + '\n} from';
       } else {
+
+        const result = importStatement.slice(0, openCurly + 1);
+        const named = importStatement
+          .slice(openCurly + 1, -6).split(',').sort();
+
+        const sorted = result + named.join(',') + '\n} from';
         // if the segment is < 50 chars just make sure it has proper spacing
-        return importStatement
+        return sorted
           .replace(/,\s*/g, ', ') // ensure there is a space after commas
           .replace(/\{\s*/, '{ ')
           .replace(/\s*\}/, ' }');
