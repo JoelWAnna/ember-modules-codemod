@@ -479,7 +479,7 @@ function transform(file, api, options) {
       // leave default only imports alone
       if (openCurly === -1) { return importStatement; }
 
-      if (importStatement.length > 50) {
+      if (importStatement.length > 120) {
         // if the segment is > 50 chars make it multi-line
         let result = importStatement.slice(0, openCurly + 1);
         let named = importStatement
