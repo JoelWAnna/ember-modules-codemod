@@ -103,6 +103,8 @@ function transform(file, api, options) {
       mappings[mapping] = new Mapping(MAPPINGS[mapping], registry);
     }
 
+    // https://github.com/chadhietala/babel-plugin-debug-macros/issues/46
+    delete mappings.assert
     return mappings;
   }
 
